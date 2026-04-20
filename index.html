@@ -543,6 +543,7 @@
   <script>
     const PUBLISHED_SHEETS = {
       menu: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMiSzqJA93HFutpWnq9G6rH8LBtzBPejcnm8BymaVJqN5TeYcbrbHpeSL6sMjutWER57HTfvta6iU2/pubhtml/sheet?headers=false&gid=161341420",
+      promos: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRI46s19FEYQp5z7JXs2NS9dLQLuS4Wuh_8IHARYqvvLor1rWaIVglSOhO9-OTdglzlQf6C865tfq-H/pubhtml/sheet?headers=false&gid=1243884476",
     };
 
     const SHEET_IDS = {
@@ -626,6 +627,38 @@
       return normalized;
     }
 
+    function parsePublishedPromosHtml(text) {
+      const rowMatches = [...text.matchAll(/<tr[^>]*>(.*?)<\/tr>/gs)];
+      const rows = rowMatches
+        .map((match) => [...match[1].matchAll(/<t[dh][^>]*>(.*?)<\/t[dh]>/gs)].map((cell) =>
+          cell[1]
+            .replace(/<.*?>/g, "")
+            .replaceAll("&amp;", "&")
+            .replaceAll("&lt;", "<")
+            .replaceAll("&gt;", ">")
+            .replaceAll("&#39;", "'")
+            .trim()
+        ))
+        .filter((row) => row.length >= 5 && row.slice(1).some(Boolean));
+
+      if (rows.length < 2) {
+        throw new Error("Published promos sheet did not contain expected rows");
+      }
+
+      return rows.slice(1).map((row, index) => {
+        const [, title, details, priceText, code] = row;
+        return {
+          active: "TRUE",
+          title,
+          subtitle: details,
+          price_text: priceText,
+          code,
+          details: "",
+          sort_order: String((index + 1) * 10)
+        };
+      });
+    }
+
     async function fetchText(url) {
       const response = await fetch(url, { cache: "no-store" });
       if (!response.ok) {
@@ -692,6 +725,18 @@
           return {
             source: "google",
             rows: parsePublishedMenuHtml(publishedHtml)
+          };
+        } catch (error) {
+          // Fall through to the existing sheet and local fallback paths.
+        }
+      }
+
+      if (sheetKey === "promos" && PUBLISHED_SHEETS.promos) {
+        try {
+          const publishedHtml = await fetchText(PUBLISHED_SHEETS.promos);
+          return {
+            source: "google",
+            rows: parsePublishedPromosHtml(publishedHtml)
           };
         } catch (error) {
           // Fall through to the existing sheet and local fallback paths.
