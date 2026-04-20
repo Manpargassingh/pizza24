@@ -1,0 +1,7 @@
+active,title,subtitle,price_text,code,details,sort_order
+TRUE,2 Large Pizzas,2 large pizzas + 2L bottle of pop,$39.99,,Pulled from the live DEALS section on pizza24kamloops.ca/menu,10
+TRUE,Game Night,Any two large pizzas with your choice of pasta,$49.99,,Pulled from the live DEALS section on pizza24kamloops.ca/menu,20
+TRUE,Deal for TWO!,Any 2 medium pizzas and 2 pops,$36.99,,Pulled from the live DEALS section on pizza24kamloops.ca/menu,30
+TRUE,Deal for ONE!,One large pizza + pop + brownies,$21.99,,Pulled from the live DEALS section on pizza24kamloops.ca/menu,40
+TRUE,Pizza 24 Love,20% off every order from the menu,20% off,PIZZA24LOVE,Homepage promo text mentions this as a time-limited offer and should be reviewed before going live.,50
+TRUE,Pasta Lovers,25% off your favorite pasta dishes,25% off,169901,Homepage promo text mentions this as a time-limited offer and should be reviewed before going live.,60

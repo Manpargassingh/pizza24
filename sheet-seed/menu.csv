@@ -1,0 +1,143 @@
+active,category,item_name,size,price,description,badge,sort_order
+TRUE,DEALS,2 Large Pizzas,,$39.99,2 large pizzas +2l bottle of pop,,10
+TRUE,DEALS,Game Night,,$49.99,Any Two Large Pizza with Your Choice of Pasta.,,20
+TRUE,DEALS,Deal for TWO!,,$36.99,Any 2 Medium Pizzas and 2 Pops Just for $36.99,,30
+TRUE,DEALS,Deal for ONE!,,$21.99,One Large Pizza+Pop+ Brownies and Love.,,40
+TRUE,DEALS,Gulab Jamun-Dessert,,$2.00,A mouth-watering dessert dipped in sugar syrup,,50
+TRUE,SPECIALITY PIZZAS,MEXICAN CHICKEN,Small,$15.49,"vibrant pizza with spicy marinated chicken, golden brown mushrooms, thinly sliced red onions, diced green peppers, fiery jalapenos bright banana peppers on a perfectly baked crust",,60
+TRUE,SPECIALITY PIZZAS,MEXICAN CHICKEN,Medium,$17.49,"vibrant pizza with spicy marinated chicken, golden brown mushrooms, thinly sliced red onions, diced green peppers, fiery jalapenos bright banana peppers on a perfectly baked crust",,70
+TRUE,SPECIALITY PIZZAS,MEXICAN CHICKEN,Large,$19.49,"vibrant pizza with spicy marinated chicken, golden brown mushrooms, thinly sliced red onions, diced green peppers, fiery jalapenos bright banana peppers on a perfectly baked crust",,80
+TRUE,SPECIALITY PIZZAS,24 SPECIAL,Small,$15.49,"A classic pizza featuring a rich tomato sauce base, gooey mozzarella cheese, with pepperoni, ham, mushrooms, onions, green peppers and pineapple toppings baked to perfection.",,90
+TRUE,SPECIALITY PIZZAS,24 SPECIAL,Medium,$17.49,"A classic pizza featuring a rich tomato sauce base, gooey mozzarella cheese, with pepperoni, ham, mushrooms, onions, green peppers and pineapple toppings baked to perfection.",,100
+TRUE,SPECIALITY PIZZAS,24 SPECIAL,Large,$19.49,"A classic pizza featuring a rich tomato sauce base, gooey mozzarella cheese, with pepperoni, ham, mushrooms, onions, green peppers and pineapple toppings baked to perfection.",,110
+TRUE,SPECIALITY PIZZAS,HOUSE SPECIAL,Small,$15.49,"A hearty mix of zesty pepperoni, salami, earthy mushrooms, sliced onions, crisp green peppers and flavorful Italian sausage.",,120
+TRUE,SPECIALITY PIZZAS,HOUSE SPECIAL,Medium,$17.49,"A hearty mix of zesty pepperoni, salami, earthy mushrooms, sliced onions, crisp green peppers and flavorful Italian sausage.",,130
+TRUE,SPECIALITY PIZZAS,HOUSE SPECIAL,Large,$19.49,"A hearty mix of zesty pepperoni, salami, earthy mushrooms, sliced onions, crisp green peppers and flavorful Italian sausage.",,140
+TRUE,SPECIALITY PIZZAS,FOUR CHEESE SPECIAL,Small,$16,"A luxurious blend of parmesan, creamy feta, sharp cheddar and stretchy mozzarella cheese layered over a golden crust.",,150
+TRUE,SPECIALITY PIZZAS,FOUR CHEESE SPECIAL,Medium,$18,"A luxurious blend of parmesan, creamy feta, sharp cheddar and stretchy mozzarella cheese layered over a golden crust.",,160
+TRUE,SPECIALITY PIZZAS,FOUR CHEESE SPECIAL,Large,$20,"A luxurious blend of parmesan, creamy feta, sharp cheddar and stretchy mozzarella cheese layered over a golden crust.",,170
+TRUE,SPECIALITY PIZZAS,MEAT LOVERS SPECIAL,Small,$15.49,"A carnivores dream with generous portions of pepperoni, savory ham, slices of salami, crumbled Italian sausage, crispy bacon, and seasoned ground beef.",,180
+TRUE,SPECIALITY PIZZAS,MEAT LOVERS SPECIAL,Medium,$17.49,"A carnivores dream with generous portions of pepperoni, savory ham, slices of salami, crumbled Italian sausage, crispy bacon, and seasoned ground beef.",,190
+TRUE,SPECIALITY PIZZAS,MEAT LOVERS SPECIAL,Large,$19.49,"A carnivores dream with generous portions of pepperoni, savory ham, slices of salami, crumbled Italian sausage, crispy bacon, and seasoned ground beef.",,200
+TRUE,SPECIALITY PIZZAS,GREEK STYLE,Small,$15.49,"A Mediterranean delight topped with fresh spinach leaves, sliced onions, crunchy green peppers, diced tomatoes, briny black olives, seasoned ground beef and crumbled feta cheese.",,210
+TRUE,SPECIALITY PIZZAS,GREEK STYLE,Medium,$17.49,"A Mediterranean delight topped with fresh spinach leaves, sliced onions, crunchy green peppers, diced tomatoes, briny black olives, seasoned ground beef and crumbled feta cheese.",,220
+TRUE,SPECIALITY PIZZAS,GREEK STYLE,Large,$19.49,"A Mediterranean delight topped with fresh spinach leaves, sliced onions, crunchy green peppers, diced tomatoes, briny black olives, seasoned ground beef and crumbled feta cheese.",,230
+TRUE,SPECIALITY PIZZAS,ITALIANO SPECIAL,SMALL,$15.49,"An Italian-inspired creation with spicy pepperoni, flavorful salami, tender mushrooms, crumbled Italian sausage and crispy bacon.",,240
+TRUE,SPECIALITY PIZZAS,ITALIANO SPECIAL,Medium,$17.49,"An Italian-inspired creation with spicy pepperoni, flavorful salami, tender mushrooms, crumbled Italian sausage and crispy bacon.",,250
+TRUE,SPECIALITY PIZZAS,ITALIANO SPECIAL,LARGE,$19.49,"An Italian-inspired creation with spicy pepperoni, flavorful salami, tender mushrooms, crumbled Italian sausage and crispy bacon.",,260
+TRUE,SPECIALITY PIZZAS,GARDEN VEGGIE,Small,$17,"Spinach, onions, green peppers, artichoke hearts, and sun-dried tomatoes.",,270
+TRUE,SPECIALITY PIZZAS,GARDEN VEGGIE,Medium,$19,"Spinach, onions, green peppers, artichoke hearts, and sun-dried tomatoes.",,280
+TRUE,SPECIALITY PIZZAS,GARDEN VEGGIE,Large,$21,"Spinach, onions, green peppers, artichoke hearts, and sun-dried tomatoes.",,290
+TRUE,SPECIALITY PIZZAS,VEGETARIAN TACO STYLE,Small,$17,"Salsa, onions, sour cream, fresh lettuce, fresh tomatoes, and cheddar cheese.",,300
+TRUE,SPECIALITY PIZZAS,VEGETARIAN TACO STYLE,Medium,$19,"Salsa, onions, sour cream, fresh lettuce, fresh tomatoes, and cheddar cheese.",,310
+TRUE,SPECIALITY PIZZAS,VEGETARIAN TACO STYLE,Large,$21,"Salsa, onions, sour cream, fresh lettuce, fresh tomatoes, and cheddar cheese.",,320
+TRUE,SPECIALITY PIZZAS,VEGGIE SUPREME,Small,$17,"Mushrooms, spinach, onions, green peppers, tomatoes, olives, pineapple, garlic, and paneer.",,330
+TRUE,SPECIALITY PIZZAS,VEGGIE SUPREME,Medium,$19,"Mushrooms, spinach, onions, green peppers, tomatoes, olives, pineapple, garlic, and paneer.",,340
+TRUE,SPECIALITY PIZZAS,VEGGIE SUPREME,Large,$21,"Mushrooms, spinach, onions, green peppers, tomatoes, olives, pineapple, garlic, and paneer.",,350
+TRUE,SPECIALITY PIZZAS,CHEF'S SPECIAL,Small,$17,"Mushrooms, onions, green peppers, tomatoes, pineapple, olives, ginger, cilantro, cheddar, and jalapeno.",,360
+TRUE,SPECIALITY PIZZAS,CHEF'S SPECIAL,Medium,$19,"Mushrooms, onions, green peppers, tomatoes, pineapple, olives, ginger, cilantro, cheddar, and jalapeno.",,370
+TRUE,SPECIALITY PIZZAS,CHEF'S SPECIAL,Large,$21,"Mushrooms, onions, green peppers, tomatoes, pineapple, olives, ginger, cilantro, cheddar, and jalapeno.",,380
+TRUE,SPECIALITY PIZZAS,PESTO VEGGIE (NEW),Small,$17,"Pesto sauce base with sun-dried tomatoes, green peppers, banana peppers, olives, feta, and mozzarella.",,390
+TRUE,SPECIALITY PIZZAS,PESTO VEGGIE (NEW),Medium,$19,"Pesto sauce base with sun-dried tomatoes, green peppers, banana peppers, olives, feta, and mozzarella.",,400
+TRUE,SPECIALITY PIZZAS,PESTO VEGGIE (NEW),Large,$21,"Pesto sauce base with sun-dried tomatoes, green peppers, banana peppers, olives, feta, and mozzarella.",,410
+TRUE,SPECIALITY PIZZAS,SHAHI PANEER SPECIAL,Small,$15.49,"A rich and creamy pizza topped with flavorful shahi paneer, mushrooms, red onions, green peppers and diced tomatoes.",,420
+TRUE,SPECIALITY PIZZAS,SHAHI PANEER SPECIAL,Medium,$17.49,"A rich and creamy pizza topped with flavorful shahi paneer, mushrooms, red onions, green peppers and diced tomatoes.",,430
+TRUE,SPECIALITY PIZZAS,SHAHI PANEER SPECIAL,Large,$19.49,"A rich and creamy pizza topped with flavorful shahi paneer, mushrooms, red onions, green peppers and diced tomatoes.",,440
+TRUE,SPECIALITY PIZZAS,PANEER SPECIAL,Small,$15.49,"A fusion favorite with tender paneer cubes, sautéed mushrooms, red onions, green peppers and juicy tomatoes.",,450
+TRUE,SPECIALITY PIZZAS,PANEER SPECIAL,Medium,$17.49,"A fusion favorite with tender paneer cubes, sautéed mushrooms, red onions, green peppers and juicy tomatoes.",,460
+TRUE,SPECIALITY PIZZAS,PANEER SPECIAL,Large,$19.49,"A fusion favorite with tender paneer cubes, sautéed mushrooms, red onions, green peppers and juicy tomatoes.",,470
+TRUE,SPECIALITY PIZZAS,HOMESTYLE SPECIAL,Small,$15.49,"A comforting pizza with earthy mushrooms, red onions, green peppers, minced garlic, juicy tomatoes, fresh ginger and chopped cilantro.",,480
+TRUE,SPECIALITY PIZZAS,HOMESTYLE SPECIAL,Medium,$17.49,"A comforting pizza with earthy mushrooms, red onions, green peppers, minced garlic, juicy tomatoes, fresh ginger and chopped cilantro.",,490
+TRUE,SPECIALITY PIZZAS,HOMESTYLE SPECIAL,Large,$19.49,"A comforting pizza with earthy mushrooms, red onions, green peppers, minced garlic, juicy tomatoes, fresh ginger and chopped cilantro.",,500
+TRUE,SPECIALITY PIZZAS,VEGGIE LITE,Small,$15.49,"A lite and zesty option with crisp onions, green peppers, sweet pineapple chunks, diced tomatoes, fresh ginger, and chopped cilantro.",,510
+TRUE,SPECIALITY PIZZAS,VEGGIE LITE,Medium,$17.49,"A lite and zesty option with crisp onions, green peppers, sweet pineapple chunks, diced tomatoes, fresh ginger, and chopped cilantro.",,520
+TRUE,SPECIALITY PIZZAS,VEGGIE LITE,Large,$19.49,"A lite and zesty option with crisp onions, green peppers, sweet pineapple chunks, diced tomatoes, fresh ginger, and chopped cilantro.",,530
+TRUE,SPECIALITY PIZZAS,MEDITERRANEAN SPECIAL,Small,$15.49,"A refreshing mix of baby spinach, sliced onions, crisp green peppers, diced tomatoes, briny black olives, and creamy feta.",,540
+TRUE,SPECIALITY PIZZAS,MEDITERRANEAN SPECIAL,Medium,$17.49,"A refreshing mix of baby spinach, sliced onions, crisp green peppers, diced tomatoes, briny black olives, and creamy feta.",,550
+TRUE,SPECIALITY PIZZAS,MEDITERRANEAN SPECIAL,Large,$19.49,"A refreshing mix of baby spinach, sliced onions, crisp green peppers, diced tomatoes, briny black olives, and creamy feta.",,560
+TRUE,SPECIALITY PIZZAS,SPICY MEXICAN (HOT),Small,$15.49,"A fiery vegetarian pizza topped with golden mushrooms, sliced red onions, diced green peppers, tangy jalapenos, and banana peppers.",,570
+TRUE,SPECIALITY PIZZAS,SPICY MEXICAN (HOT),Medium,$17.49,"A fiery vegetarian pizza topped with golden mushrooms, sliced red onions, diced green peppers, tangy jalapenos, and banana peppers.",,580
+TRUE,SPECIALITY PIZZAS,SPICY MEXICAN (HOT),Large,$19.49,"A fiery vegetarian pizza topped with golden mushrooms, sliced red onions, diced green peppers, tangy jalapenos, and banana peppers.",,590
+TRUE,SPECIALITY PIZZAS,VEGETARIAN SPECIAL,Small,$15.49,"A colorful mix of golden mushrooms, sautéed onions, diced green peppers, fresh tomatoes, black olives, and sweet pineapple.",,600
+TRUE,SPECIALITY PIZZAS,VEGETARIAN SPECIAL,Medium,$17.49,"A colorful mix of golden mushrooms, sautéed onions, diced green peppers, fresh tomatoes, black olives, and sweet pineapple.",,610
+TRUE,SPECIALITY PIZZAS,VEGETARIAN SPECIAL,Large,$19.49,"A colorful mix of golden mushrooms, sautéed onions, diced green peppers, fresh tomatoes, black olives, and sweet pineapple.",,620
+TRUE,SPECIALITY PIZZAS,CHICKEN CHIPOTLE,Small,$15.49,"A zesty combination of chipotle sauce with grilled chicken, sliced onions, green peppers, and diced tomatoes.",,630
+TRUE,SPECIALITY PIZZAS,CHICKEN CHIPOTLE,Medium,$17.49,"A zesty combination of chipotle sauce with grilled chicken, sliced onions, green peppers, and diced tomatoes.",,640
+TRUE,SPECIALITY PIZZAS,CHICKEN CHIPOTLE,Large,$19.49,"A zesty combination of chipotle sauce with grilled chicken, sliced onions, green peppers, and diced tomatoes.",,650
+TRUE,SPECIALITY PIZZAS,CHICKEN FAJITA,Small,$15.49,"A bold pizza with tangy salsa, pepperoni slices, tender chicken, sautéed mushrooms, onions, green peppers, and a layer of cheddar.",,660
+TRUE,SPECIALITY PIZZAS,CHICKEN FAJITA,Medium,$17.49,"A bold pizza with tangy salsa, pepperoni slices, tender chicken, sautéed mushrooms, onions, green peppers, and a layer of cheddar.",,670
+TRUE,SPECIALITY PIZZAS,CHICKEN FAJITA,Large,$19.49,"A bold pizza with tangy salsa, pepperoni slices, tender chicken, sautéed mushrooms, onions, green peppers, and a layer of cheddar.",,680
+TRUE,SPECIALITY PIZZAS,BBQ CHICKEN SPECIAL,Small,$15.49,"A perfect pizza with BBQ chicken, sautéed red onions, green peppers, crispy bacon, and melted cheddar.",,690
+TRUE,SPECIALITY PIZZAS,BBQ CHICKEN SPECIAL,Medium,$17.49,"A perfect pizza with BBQ chicken, sautéed red onions, green peppers, crispy bacon, and melted cheddar.",,700
+TRUE,SPECIALITY PIZZAS,BBQ CHICKEN SPECIAL,Large,$19.49,"A perfect pizza with BBQ chicken, sautéed red onions, green peppers, crispy bacon, and melted cheddar.",,710
+TRUE,SPECIALITY PIZZAS,CHICKEN BACON RANCH,Small,$15.49,"A creamy ranch sauce base topped with smoky ham, tender chicken, crispy bacon, and juicy tomatoes.",,720
+TRUE,SPECIALITY PIZZAS,CHICKEN BACON RANCH,Medium,$17.49,"A creamy ranch sauce base topped with smoky ham, tender chicken, crispy bacon, and juicy tomatoes.",,730
+TRUE,SPECIALITY PIZZAS,CHICKEN BACON RANCH,Large,$19.49,"A creamy ranch sauce base topped with smoky ham, tender chicken, crispy bacon, and juicy tomatoes.",,740
+TRUE,SPECIALITY PIZZAS,HOT MEXICAN,Small,$15.49,"A fiery option with onions, green peppers, chili peppers, jalapenos, banana peppers, Italian sausage, and ground beef.",,750
+TRUE,SPECIALITY PIZZAS,HOT MEXICAN,Medium,$17.49,"A fiery option with onions, green peppers, chili peppers, jalapenos, banana peppers, Italian sausage, and ground beef.",,760
+TRUE,SPECIALITY PIZZAS,HOT MEXICAN,Large,$19.49,"A fiery option with onions, green peppers, chili peppers, jalapenos, banana peppers, Italian sausage, and ground beef.",,770
+TRUE,SPECIALITY PIZZAS,DELUXE SPECIAL,Small,$17,"Loaded with pepperoni, salami, ham, mushrooms, onions, green peppers, olives, bacon, ground beef, and Italian sausage.",,780
+TRUE,SPECIALITY PIZZAS,DELUXE SPECIAL,Medium,$19,"Loaded with pepperoni, salami, ham, mushrooms, onions, green peppers, olives, bacon, ground beef, and Italian sausage.",,790
+TRUE,SPECIALITY PIZZAS,DELUXE SPECIAL,Large,$21,"Loaded with pepperoni, salami, ham, mushrooms, onions, green peppers, olives, bacon, ground beef, and Italian sausage.",,800
+TRUE,SPECIALITY PIZZAS,TACO SPECIAL,Small,$16,"TACO SPECIAL Inspired by taco flavors, featuring salsa, onions, ground beef, fresh lettuce, sour cream, fresh tomatoes, and cheddar",,810
+TRUE,SPECIALITY PIZZAS,TACO SPECIAL,Medium,$18,"TACO SPECIAL Inspired by taco flavors, featuring salsa, onions, ground beef, fresh lettuce, sour cream, fresh tomatoes, and cheddar",,820
+TRUE,SPECIALITY PIZZAS,TACO SPECIAL,Large,$20,"TACO SPECIAL Inspired by taco flavors, featuring salsa, onions, ground beef, fresh lettuce, sour cream, fresh tomatoes, and cheddar",,830
+TRUE,SPECIALITY PIZZAS,CHICKEN TACO,Small,$15.49,"A Mexican-inspired pizza featuring tandoori chicken, zesty salsa, sliced onions, sour cream, fresh lettuce, diced tomatoes, and shredded cheddar cheese.",,840
+TRUE,SPECIALITY PIZZAS,CHICKEN TACO,Medium,$17.49,"A Mexican-inspired pizza featuring tandoori chicken, zesty salsa, sliced onions, sour cream, fresh lettuce, diced tomatoes, and shredded cheddar cheese.",,850
+TRUE,SPECIALITY PIZZAS,CHICKEN TACO,Large,$19.49,"A Mexican-inspired pizza featuring tandoori chicken, zesty salsa, sliced onions, sour cream, fresh lettuce, diced tomatoes, and shredded cheddar cheese.",,860
+TRUE,SPECIALITY PIZZAS,BUTTER CHICKEN SPECIAL,Small,$15.49,"A fusion flavor with mushrooms, red onions, green peppers, tomatoes, and butter chicken.",,870
+TRUE,SPECIALITY PIZZAS,BUTTER CHICKEN SPECIAL,Medium,$17.49,"A fusion flavor with mushrooms, red onions, green peppers, tomatoes, and butter chicken.",,880
+TRUE,SPECIALITY PIZZAS,BUTTER CHICKEN SPECIAL,Large,$19.49,"A fusion flavor with mushrooms, red onions, green peppers, tomatoes, and butter chicken.",,890
+TRUE,PASTA DISHES,VEGGIE LASAGNA,SMALL,$13,,,900
+TRUE,PASTA DISHES,VEGGIE LASAGNA,LARGE,$15,,,910
+TRUE,PASTA DISHES,MEAT SAUCE LASAGNA,SMALL,$14,(BEEF OR CHICKEN),,920
+TRUE,PASTA DISHES,MEAT SAUCE LASAGNA,LARGE,$17,(BEEF OR CHICKEN),,930
+TRUE,PASTA DISHES,MEAT SAUCE LASAGNA WITH MEAT BALLS,SMALL,$14,,,940
+TRUE,PASTA DISHES,MEAT SAUCE LASAGNA WITH MEAT BALLS,LARGE,$17,,,950
+TRUE,PASTA DISHES,MEAT SAUCE WITH MUSHROOMS & MEAT BALLS,SMALL,$14.50,,,960
+TRUE,PASTA DISHES,MEAT SAUCE WITH MUSHROOMS & MEAT BALLS,LARGE,$17.50,,,970
+TRUE,WINGS & MORE,HOT & SPICY WINGS,(10),$14,,,980
+TRUE,WINGS & MORE,HONEY GARLIC WINGS,(10),$14,,,990
+TRUE,WINGS & MORE,BBQ WINGS,(10),$14,,,1000
+TRUE,WINGS & MORE,CHEESY BREAD STICKS,,$15,,,1010
+TRUE,WINGS & MORE,GARLIC TOAST,,$2,,,1020
+TRUE,WINGS & MORE,CHEESE GARLIC TOAST,,$3,,,1030
+TRUE,WINGS & MORE,TANDOORI WINGS,(10),$14.50,,,1040
+TRUE,WINGS & MORE,VEGGIE BREAD STICKS,,$16.50,,,1050
+TRUE,WINGS & MORE,Salt & Pepper Wings,,$14,,,1060
+TRUE,MAKE YOUR OWN,Make Your Own,,$12,SMALL Pizza with three toppings included.,,1070
+TRUE,MAKE YOUR OWN,Make Your Own,,$14,MEDIUM Pizza with three toppings included.,,1080
+TRUE,MAKE YOUR OWN,Make Your Own,,$16,LARGE Pizza with three toppings included.,,1090
+TRUE,DRINKS,Coke,Pop,$1.99,,,1100
+TRUE,DRINKS,Coke,Small Bottle,$3.99,,,1110
+TRUE,DRINKS,Coke,2L,$4.99,,,1120
+TRUE,DRINKS,Coke diet,Pop,$1.99,,,1130
+TRUE,DRINKS,Coke diet,Small Bottle,$3.99,,,1140
+TRUE,DRINKS,Coke diet,2L,$4.99,,,1150
+TRUE,DRINKS,7up,Pop,$1.99,,,1160
+TRUE,DRINKS,7up,Small Bottle,$3.99,,,1170
+TRUE,DRINKS,7up,2L,$4.99,,,1180
+TRUE,DRINKS,Root beer A&W,Pop,$1.99,,,1190
+TRUE,DRINKS,Root beer A&W,Small Bottle,$3.99,,,1200
+TRUE,DRINKS,Root beer A&W,2L,$4.99,,,1210
+TRUE,DRINKS,Coke Zero,Pop,$1.99,,,1220
+TRUE,DRINKS,Coke Zero,Small Bottle,$3.99,,,1230
+TRUE,DRINKS,Coke Zero,2L,$4.99,,,1240
+TRUE,DRINKS,Crush Orange,Pop,$1.99,,,1250
+TRUE,DRINKS,Crush Orange,Small Bottle,$3.99,,,1260
+TRUE,DRINKS,Crush Orange,2L,$4.99,,,1270
+TRUE,DRINKS,Canada Dry,Pop,$1.99,,,1280
+TRUE,DRINKS,Canada Dry,Small Bottle,$3.99,,,1290
+TRUE,DRINKS,Canada Dry,2L,$4.99,,,1300
+TRUE,DRINKS,Pepsi original,Pop,$1.99,,,1310
+TRUE,DRINKS,Pepsi original,Small Bottle,$3.99,,,1320
+TRUE,DRINKS,Pepsi original,2L,$4.99,,,1330
+TRUE,DRINKS,Pepsi Zero,Pop,$1.99,,,1340
+TRUE,DRINKS,Pepsi Zero,Small Bottle,$3.99,,,1350
+TRUE,DRINKS,Pepsi Zero,2L,$4.99,,,1360
+TRUE,DRINKS,Pepsi Diet,Pop,$1.99,,,1370
+TRUE,DRINKS,Pepsi Diet,Small Bottle,$3.99,,,1380
+TRUE,DRINKS,Pepsi Diet,2L,$4.99,,,1390
+TRUE,DESERTS,Two-Bite Brownies,,$3.99,Get two soft and hot brownies in just $3.99.,,1400
+TRUE,NACHOS,Nachos,Regular,$10.99,"Cheesy, crispy, spicy, loaded nachos with green peppers, olives, ring onion, jalapeno peppers, double cheese melt, optional chicken or beef.",,1410
+TRUE,NACHOS,Large Nachos,Large,$19.99,"Cheesy, crispy, spicy, loaded nachos with green peppers, olives, ring onion, jalapeno peppers, double cheese melt, optional chicken or beef.",,1420
