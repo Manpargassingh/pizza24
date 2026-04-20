@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizza 24 Kamloops</title>
+  <style>
+    :root {
+      --bg: #170d09;
+      --bg-2: #2a140d;
+      --card: rgba(34, 15, 10, 0.92);
+      --card-soft: rgba(57, 24, 14, 0.82);
+      --line: rgba(255, 214, 144, 0.18);
+      --red: #c82e1f;
+      --red-deep: #8e1a10;
+      --gold: #f1b43a;
+      --cream: #fff4df;
+      --muted: #f0d3aa;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 30px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(241, 180, 58, 0.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(200, 46, 31, 0.24), transparent 28%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      color: var(--cream);
+      font-family: "Trebuchet MS", Verdana, sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(14, 6, 4, 0.76), rgba(14, 6, 4, 0.88)),
+        url("https://static.wixstatic.com/media/7ad199_c93e8192fccd459985ff90b7a58c6a00%7Emv2.png/v1/fit/w_2500,h_1330,al_c/7ad199_c93e8192fccd459985ff90b7a58c6a00%7Emv2.png")
+        center/cover no-repeat;
+      opacity: 0.34;
+      pointer-events: none;
+    }
+
+    .app {
+      position: relative;
+      display: grid;
+      grid-template-columns: 34rem minmax(0, 1fr);
+      gap: 20px;
+      height: 100vh;
+      padding: 18px;
+    }
+
+    .sidebar,
+    .board {
+      position: relative;
+      z-index: 1;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(36, 16, 10, 0.88), rgba(21, 10, 7, 0.94));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .sidebar {
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    .hero {
+      position: relative;
+      padding: 24px 24px 20px;
+      background:
+        linear-gradient(145deg, rgba(200, 46, 31, 0.8), rgba(142, 26, 16, 0.8)),
+        url("https://static.wixstatic.com/media/7ad199_82025e7ada824ac7a0dbc52b31db9c9f~mv2.jpg/v1/crop/x_226,y_0,w_1596,h_2048/fill/w_982,h_1260,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Firefly%20women%20crafting%20pizza%2084388%20(1).jpg")
+        center/cover no-repeat;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(20, 7, 4, 0.78));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      object-fit: cover;
+      padding: 6px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: rgba(255, 244, 223, 0.12);
+      border: 1px solid rgba(255, 244, 223, 0.18);
+      border-radius: 999px;
+      color: var(--gold);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .title {
+      margin: 12px 0 8px;
+      font-size: clamp(2.4rem, 3vw, 3.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      max-width: 28ch;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .meta-card {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card-soft);
+      min-height: 98px;
+    }
+
+    .meta-label {
+      color: var(--gold);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .meta-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .promo-wrap {
+      position: relative;
+      overflow: hidden;
+      padding: 14px 14px 20px;
+    }
+
+    .promo-track {
+      display: grid;
+      gap: 14px;
+      animation: promoScroll 38s linear infinite;
+      will-change: transform;
+    }
+
+    .promo-card {
+      padding: 18px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(200, 46, 31, 0.16), rgba(241, 180, 58, 0.08)),
+        rgba(255, 255, 255, 0.04);
+    }
+
+    .promo-title {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+      line-height: 1.05;
+    }
+
+    .promo-subtitle,
+    .promo-details,
+    .footer {
+      color: var(--muted);
+    }
+
+    .promo-price {
+      margin: 8px 0 10px;
+      color: var(--gold);
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .promo-code {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(241, 180, 58, 0.34);
+      background: rgba(241, 180, 58, 0.12);
+      color: #ffd570;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      padding: 0 20px 18px;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .board {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(241, 180, 58, 0.12), rgba(200, 46, 31, 0.08)),
+        rgba(255, 255, 255, 0.02);
+    }
+
+    .board-title {
+      margin: 6px 0 0;
+      font-size: 2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .board-note {
+      color: var(--muted);
+      font-size: 0.96rem;
+      max-width: 42ch;
+    }
+
+    .ticker {
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      gap: 28px;
+      padding: 12px 0;
+      min-width: 100%;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px;
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      height: 100%;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .column {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .column::before,
+    .column::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 36px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .column::before {
+      top: 0;
+      background: linear-gradient(180deg, rgba(28, 12, 8, 0.96), rgba(28, 12, 8, 0));
+    }
+
+    .column::after {
+      bottom: 0;
+      background: linear-gradient(0deg, rgba(28, 12, 8, 0.96), rgba(28, 12, 8, 0));
+    }
+
+    .scroll-track {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+      will-change: transform;
+    }
+
+    .column[data-speed="slow"] .scroll-track {
+      animation: menuScroll 64s linear infinite;
+    }
+
+    .column[data-speed="medium"] .scroll-track {
+      animation: menuScroll 56s linear infinite;
+    }
+
+    .column[data-speed="fast"] .scroll-track {
+      animation: menuScroll 48s linear infinite;
+    }
+
+    .category {
+      border-radius: 22px;
+      border: 1px solid rgba(241, 180, 58, 0.14);
+      background: linear-gradient(180deg, rgba(90, 27, 15, 0.5), rgba(35, 14, 9, 0.9));
+      overflow: hidden;
+    }
+
+    .category-head {
+      position: sticky;
+      top: 0;
+      padding: 14px 16px;
+      background: linear-gradient(90deg, rgba(200, 46, 31, 0.85), rgba(128, 27, 18, 0.85));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .category-title {
+      margin: 0;
+      color: #fff4df;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .items {
+      padding: 6px 16px 14px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 6px 12px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .item:first-child {
+      border-top: 0;
+    }
+
+    .item-name {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .item-meta,
+    .item-desc,
+    .board-status {
+      color: var(--muted);
+    }
+
+    .item-meta,
+    .item-desc {
+      font-size: 0.84rem;
+      line-height: 1.35;
+    }
+
+    .item-price {
+      color: var(--gold);
+      font-size: 1rem;
+      font-weight: 800;
+      white-space: nowrap;
+      padding-left: 8px;
+    }
+
+    .board-status {
+      padding: 0 24px 18px;
+      font-size: 0.88rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.26);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #6cff88;
+      box-shadow: 0 0 18px rgba(108, 255, 136, 0.7);
+    }
+
+    .status-badge.error .status-dot {
+      background: #ff7368;
+      box-shadow: 0 0 18px rgba(255, 115, 104, 0.7);
+    }
+
+    @keyframes menuScroll {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50%); }
+    }
+
+    @keyframes promoScroll {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50%); }
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 1320px) {
+      .app {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 100vh;
+        overflow: auto;
+      }
+
+      html,
+      body {
+        overflow: auto;
+      }
+
+      .columns {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .column {
+        min-height: 80vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <aside class="sidebar">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="logo-row">
+            <img class="logo" src="https://www.pizza24kamloops.ca/images/logo.png" alt="Pizza 24 logo" />
+            <div class="eyebrow" id="eyebrow">Now Serving</div>
+          </div>
+          <h1 class="title" id="title">Pizza 24 Kamloops</h1>
+          <p class="subtitle" id="subtitle">Live menu and promo board.</p>
+        </div>
+      </section>
+
+      <section class="meta-strip">
+        <article class="meta-card">
+          <div class="meta-label">Phone</div>
+          <div class="meta-value">250-376-1111</div>
+        </article>
+        <article class="meta-card">
+          <div class="meta-label">Hours</div>
+          <div class="meta-value">11:00 AM - 10:00 PM</div>
+        </article>
+        <article class="meta-card">
+          <div class="meta-label">Location</div>
+          <div class="meta-value">1295 12th St Unit 104</div>
+        </article>
+      </section>
+
+      <section class="promo-wrap">
+        <div class="promo-track" id="promos"></div>
+      </section>
+
+      <div class="footer" id="footer">Loading data...</div>
+    </aside>
+
+    <section class="board">
+      <header class="board-header">
+        <div>
+          <div class="eyebrow">Full Menu</div>
+          <h2 class="board-title">Kamloops Pizza, Wings, Pasta, Drinks and Desserts</h2>
+        </div>
+        <div class="board-note" id="board-note">Live Google Sheet sync is enabled when the sheets are published. Local menu seed data is used automatically as a fallback.</div>
+      </header>
+
+      <div class="ticker">
+        <div class="ticker-track" id="ticker"></div>
+      </div>
+
+      <div class="columns" id="menu-columns"></div>
+
+      <div class="board-status">
+        <span class="status-badge" id="status-badge">
+          <span class="status-dot"></span>
+          <span id="status-text">Loading menu data...</span>
+        </span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const SHEET_IDS = {
+      menu: "1ao-Y71eoxtfkinawTOcHl67QtFKQBR0V1khOny_Sc-E",
+      promos: "1gFu6k_IGTrA0N-_LKOQ-ISbGQBAVjG17isrjlLfjk4s",
+      settings: "192vUPGs2UvafqAwtgZcZel_rsgrv3t1igtxkBUoJzto"
+    };
+
+    const LOCAL_FILES = {
+      menu: "./sheet-seed/menu.csv",
+      promos: "./sheet-seed/promos.csv",
+      settings: "./sheet-seed/settings.csv"
+    };
+
+    const REFRESH_MS = 60000;
+
+    function gvizUrl(sheetKey) {
+      return `https://docs.google.com/spreadsheets/d/${SHEET_IDS[sheetKey]}/gviz/tq?tqx=out:json`;
+    }
+
+    async function fetchText(url) {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`Request failed for ${url}: ${response.status}`);
+      }
+      return response.text();
+    }
+
+    function parseCsv(text) {
+      const rows = [];
+      let row = [];
+      let value = "";
+      let quoted = false;
+
+      for (let index = 0; index < text.length; index += 1) {
+        const char = text[index];
+        const next = text[index + 1];
+
+        if (char === '"') {
+          if (quoted && next === '"') {
+            value += '"';
+            index += 1;
+          } else {
+            quoted = !quoted;
+          }
+          continue;
+        }
+
+        if (char === "," && !quoted) {
+          row.push(value);
+          value = "";
+          continue;
+        }
+
+        if ((char === "\n" || char === "\r") && !quoted) {
+          if (char === "\r" && next === "\n") {
+            index += 1;
+          }
+          row.push(value);
+          if (row.some((cell) => cell !== "")) {
+            rows.push(row);
+          }
+          row = [];
+          value = "";
+          continue;
+        }
+
+        value += char;
+      }
+
+      if (value !== "" || row.length) {
+        row.push(value);
+        rows.push(row);
+      }
+
+      const [headers, ...dataRows] = rows;
+      return dataRows.map((dataRow) => Object.fromEntries(headers.map((header, i) => [header, dataRow[i] || ""])));
+    }
+
+    async function loadSheet(sheetKey) {
+      try {
+        const raw = await fetchText(gvizUrl(sheetKey));
+        const json = JSON.parse(raw.substring(47, raw.length - 2));
+        const cols = json.table.cols.map((col) => col.label || col.id || "");
+        return {
+          source: "google",
+          rows: json.table.rows.map((row) => {
+            const item = {};
+            cols.forEach((label, index) => {
+              item[label] = row.c[index] ? row.c[index].v : "";
+            });
+            return item;
+          })
+        };
+      } catch (error) {
+        const localCsv = await fetchText(LOCAL_FILES[sheetKey]);
+        return {
+          source: "local",
+          rows: parseCsv(localCsv)
+        };
+      }
+    }
+
+    function isActive(value) {
+      return String(value).trim().toLowerCase() === "true";
+    }
+
+    function esc(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function duplicateContent(html) {
+      return `${html}${html}`;
+    }
+
+    function applySettings(rows) {
+      const settings = Object.fromEntries(rows.map((row) => [row.key, row.value]));
+      document.getElementById("title").textContent = settings.title || "Pizza 24 Kamloops";
+      document.getElementById("subtitle").textContent = settings.subtitle || "Live menu and promo board.";
+      document.getElementById("eyebrow").textContent = settings.eyebrow || "Now Serving";
+      document.getElementById("footer").textContent = settings.footer || "Update the published sheet and the TVs refresh automatically.";
+      document.title = settings.title || "Pizza 24 Kamloops";
+    }
+
+    function renderPromos(rows) {
+      const activeRows = rows
+        .filter((row) => isActive(row.active))
+        .sort((a, b) => Number(a.sort_order || 0) - Number(b.sort_order || 0));
+
+      const cards = activeRows.map((row) => `
+        <article class="promo-card">
+          <h3 class="promo-title">${esc(row.title)}</h3>
+          <div class="promo-subtitle">${esc(row.subtitle)}</div>
+          ${row.price_text ? `<div class="promo-price">${esc(row.price_text)}</div>` : ""}
+          ${row.code ? `<div class="promo-code">${esc(row.code)}</div>` : ""}
+          ${row.details ? `<div class="promo-details" style="margin-top:10px">${esc(row.details)}</div>` : ""}
+        </article>
+      `).join("");
+
+      document.getElementById("promos").innerHTML = duplicateContent(cards || `
+        <article class="promo-card">
+          <h3 class="promo-title">Daily Specials</h3>
+          <div class="promo-subtitle">Promotions will appear here when the data loads.</div>
+        </article>
+      `);
+    }
+
+    function categoryHtml(category, items) {
+      const body = items.map((item) => `
+        <article class="item">
+          <div>
+            <div class="item-name">${esc(item.item_name)}</div>
+            ${item.size ? `<div class="item-meta">${esc(item.size)}</div>` : ""}
+            ${item.description ? `<div class="item-desc">${esc(item.description)}</div>` : ""}
+          </div>
+          <div class="item-price">${esc(item.price)}</div>
+        </article>
+      `).join("");
+
+      return `
+        <section class="category">
+          <div class="category-head">
+            <h3 class="category-title">${esc(category)}</h3>
+          </div>
+          <div class="items">${body}</div>
+        </section>
+      `;
+    }
+
+    function renderTicker(groupedEntries) {
+      const pills = groupedEntries.map(([category, items]) => `
+        <span class="ticker-pill">${esc(category)} <span style="color:var(--cream)">${items.length} items</span></span>
+      `).join("");
+      document.getElementById("ticker").innerHTML = duplicateContent(pills);
+    }
+
+    function renderMenu(rows) {
+      const activeRows = rows
+        .filter((row) => isActive(row.active))
+        .sort((a, b) => Number(a.sort_order || 0) - Number(b.sort_order || 0));
+
+      const grouped = activeRows.reduce((acc, row) => {
+        const category = row.category || "Menu";
+        (acc[category] ||= []).push(row);
+        return acc;
+      }, {});
+
+      const groupedEntries = Object.entries(grouped);
+      renderTicker(groupedEntries);
+
+      const columns = [[], [], []];
+      groupedEntries.forEach((entry, index) => {
+        columns[index % 3].push(entry);
+      });
+
+      const speeds = ["slow", "medium", "fast"];
+      document.getElementById("menu-columns").innerHTML = columns.map((columnEntries, index) => {
+        const html = columnEntries.map(([category, items]) => categoryHtml(category, items)).join("");
+        return `
+          <section class="column" data-speed="${speeds[index]}">
+            <div class="scroll-track">${duplicateContent(html)}</div>
+          </section>
+        `;
+      }).join("");
+    }
+
+    function setStatus(message, isError = false) {
+      document.getElementById("status-text").textContent = message;
+      document.getElementById("status-badge").className = isError ? "status-badge error" : "status-badge";
+    }
+
+    async function refresh() {
+      const [menuData, promoData, settingsData] = await Promise.all([
+        loadSheet("menu"),
+        loadSheet("promos"),
+        loadSheet("settings")
+      ]);
+
+      renderMenu(menuData.rows);
+      renderPromos(promoData.rows);
+      applySettings(settingsData.rows);
+
+      const usingFallback = [menuData, promoData, settingsData].some((result) => result.source !== "google");
+      if (usingFallback) {
+        document.getElementById("board-note").textContent = "Google Sheets is not publicly readable yet. The screen is using the local extracted Pizza 24 data so the full menu still displays.";
+        setStatus("Showing local backup data. Publish the sheets to web to enable live syncing.", true);
+      } else {
+        document.getElementById("board-note").textContent = "Live menu is syncing from Google Sheets. The board refreshes automatically every 60 seconds.";
+        setStatus(`Live data connected • ${new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}`);
+      }
+    }
+
+    refresh();
+    setInterval(refresh, REFRESH_MS);
+  </script>
+</body>
+</html>
