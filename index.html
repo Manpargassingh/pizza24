@@ -542,7 +542,7 @@
 
   <script>
     const PUBLISHED_SHEETS = {
-      menu: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMiSzqJA93HFutpWnq9G6rH8LBtzBPejcnm8BymaVJqN5TeYcbrbHpeSL6sMjutWER57HTfvta6iU2/pubhtml/sheet?headers=false&gid=161341420",
+      menu: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTlB0rg0mrQmUn3Igq800fzdKvw1aE768ccaLfBeR0T6fNlbA73v2F9kNbm4DfzgP5aFV1DaRBqrK-g/pubhtml/sheet?headers=false&gid=2059046831",
       promos: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRI46s19FEYQp5z7JXs2NS9dLQLuS4Wuh_8IHARYqvvLor1rWaIVglSOhO9-OTdglzlQf6C865tfq-H/pubhtml/sheet?headers=false&gid=1243884476",
       settings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTAUaek68Ha2mUynpseL6v1WWiC5_wpmuCwoVn7tRDOczaDhschb-X6GTEs-ITs54c1rK9xxlgXtkps/pubhtml/sheet?headers=false&gid=972465485",
     };
@@ -581,6 +581,25 @@
 
       if (rows.length < 2) {
         throw new Error("Published menu sheet did not contain expected rows");
+      }
+
+      const templateHeader = rows[1].slice(1).map((value) => value.toLowerCase());
+      if (
+        templateHeader[0] === "active" &&
+        templateHeader[1] === "category" &&
+        templateHeader[2] === "item_name"
+      ) {
+        return rows.slice(2).map((row) => ({
+          active: row[1] || "TRUE",
+          category: row[2] || "",
+          item_name: row[3] || "",
+          size: row[4] || "",
+          price: row[5] || "",
+          description: row[6] || "",
+          badge: row[7] || "",
+          image: row[8] || "",
+          sort_order: row[9] || ""
+        }));
       }
 
       const dataRows = rows.slice(1);
