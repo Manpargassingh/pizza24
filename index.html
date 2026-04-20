@@ -541,6 +541,10 @@
   </main>
 
   <script>
+    const PUBLISHED_SHEETS = {
+      menu: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMiSzqJA93HFutpWnq9G6rH8LBtzBPejcnm8BymaVJqN5TeYcbrbHpeSL6sMjutWER57HTfvta6iU2/pubhtml/sheet?headers=false&gid=161341420",
+    };
+
     const SHEET_IDS = {
       menu: "1ao-Y71eoxtfkinawTOcHl67QtFKQBR0V1khOny_Sc-E",
       promos: "1gFu6k_IGTrA0N-_LKOQ-ISbGQBAVjG17isrjlLfjk4s",
@@ -557,6 +561,69 @@
 
     function gvizUrl(sheetKey) {
       return `https://docs.google.com/spreadsheets/d/${SHEET_IDS[sheetKey]}/gviz/tq?tqx=out:json`;
+    }
+
+    function parsePublishedMenuHtml(text) {
+      const rowMatches = [...text.matchAll(/<tr[^>]*>(.*?)<\/tr>/gs)];
+      const rows = rowMatches
+        .map((match) => [...match[1].matchAll(/<t[dh][^>]*>(.*?)<\/t[dh]>/gs)].map((cell) =>
+          cell[1]
+            .replace(/<.*?>/g, "")
+            .replaceAll("&amp;", "&")
+            .replaceAll("&lt;", "<")
+            .replaceAll("&gt;", ">")
+            .replaceAll("&#39;", "'")
+            .trim()
+        ))
+        .filter((row) => row.length >= 7 && row.slice(1).some(Boolean));
+
+      if (rows.length < 2) {
+        throw new Error("Published menu sheet did not contain expected rows");
+      }
+
+      const dataRows = rows.slice(1);
+      const normalized = [];
+      let sortOrder = 10;
+
+      for (const row of dataRows) {
+        const [, category, itemName, description, smallPrice, mediumPrice, largePrice] = row;
+        const variants = [
+          ["Small", smallPrice],
+          ["Medium", mediumPrice],
+          ["Large", largePrice]
+        ].filter(([, price]) => price);
+
+        if (variants.length) {
+          for (const [size, price] of variants) {
+            normalized.push({
+              active: "TRUE",
+              category,
+              item_name: itemName,
+              size,
+              price,
+              description,
+              badge: "",
+              sort_order: String(sortOrder)
+            });
+            sortOrder += 10;
+          }
+          continue;
+        }
+
+        normalized.push({
+          active: "TRUE",
+          category,
+          item_name: itemName,
+          size: "",
+          price: "",
+          description,
+          badge: "",
+          sort_order: String(sortOrder)
+        });
+        sortOrder += 10;
+      }
+
+      return normalized;
     }
 
     async function fetchText(url) {
@@ -619,6 +686,18 @@
     }
 
     async function loadSheet(sheetKey) {
+      if (sheetKey === "menu" && PUBLISHED_SHEETS.menu) {
+        try {
+          const publishedHtml = await fetchText(PUBLISHED_SHEETS.menu);
+          return {
+            source: "google",
+            rows: parsePublishedMenuHtml(publishedHtml)
+          };
+        } catch (error) {
+          // Fall through to the existing sheet and local fallback paths.
+        }
+      }
+
       try {
         const raw = await fetchText(gvizUrl(sheetKey));
         const json = JSON.parse(raw.substring(47, raw.length - 2));
