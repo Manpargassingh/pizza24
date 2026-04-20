@@ -544,6 +544,7 @@
     const PUBLISHED_SHEETS = {
       menu: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMiSzqJA93HFutpWnq9G6rH8LBtzBPejcnm8BymaVJqN5TeYcbrbHpeSL6sMjutWER57HTfvta6iU2/pubhtml/sheet?headers=false&gid=161341420",
       promos: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRI46s19FEYQp5z7JXs2NS9dLQLuS4Wuh_8IHARYqvvLor1rWaIVglSOhO9-OTdglzlQf6C865tfq-H/pubhtml/sheet?headers=false&gid=1243884476",
+      settings: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTAUaek68Ha2mUynpseL6v1WWiC5_wpmuCwoVn7tRDOczaDhschb-X6GTEs-ITs54c1rK9xxlgXtkps/pubhtml/sheet?headers=false&gid=972465485",
     };
 
     const SHEET_IDS = {
@@ -659,6 +660,30 @@
       });
     }
 
+    function parsePublishedSettingsHtml(text) {
+      const rowMatches = [...text.matchAll(/<tr[^>]*>(.*?)<\/tr>/gs)];
+      const rows = rowMatches
+        .map((match) => [...match[1].matchAll(/<t[dh][^>]*>(.*?)<\/t[dh]>/gs)].map((cell) =>
+          cell[1]
+            .replace(/<.*?>/g, "")
+            .replaceAll("&amp;", "&")
+            .replaceAll("&lt;", "<")
+            .replaceAll("&gt;", ">")
+            .replaceAll("&#39;", "'")
+            .trim()
+        ))
+        .filter((row) => row.length >= 3 && row.slice(1).some(Boolean));
+
+      if (rows.length < 2) {
+        throw new Error("Published settings sheet did not contain expected rows");
+      }
+
+      return rows.slice(1).map((row) => {
+        const [, key, value] = row;
+        return { key, value };
+      });
+    }
+
     async function fetchText(url) {
       const response = await fetch(url, { cache: "no-store" });
       if (!response.ok) {
@@ -743,6 +768,18 @@
         }
       }
 
+      if (sheetKey === "settings" && PUBLISHED_SHEETS.settings) {
+        try {
+          const publishedHtml = await fetchText(PUBLISHED_SHEETS.settings);
+          return {
+            source: "google",
+            rows: parsePublishedSettingsHtml(publishedHtml)
+          };
+        } catch (error) {
+          // Fall through to the existing sheet and local fallback paths.
+        }
+      }
+
       try {
         const raw = await fetchText(gvizUrl(sheetKey));
         const json = JSON.parse(raw.substring(47, raw.length - 2));
@@ -784,11 +821,27 @@
 
     function applySettings(rows) {
       const settings = Object.fromEntries(rows.map((row) => [row.key, row.value]));
-      document.getElementById("title").textContent = settings.title || "Pizza 24 Kamloops";
-      document.getElementById("subtitle").textContent = settings.subtitle || "Live menu and promo board.";
-      document.getElementById("eyebrow").textContent = settings.eyebrow || "Now Serving";
-      document.getElementById("footer").textContent = settings.footer || "Update the published sheet and the TVs refresh automatically.";
-      document.title = settings.title || "Pizza 24 Kamloops";
+      const businessName = settings["Business Name"] || settings.title || "Pizza 24 Kamloops";
+      const phone = settings.Phone || "250-376-1111";
+      const address = settings.Address || "1295 12th St Unit 104";
+      const hoursSummary = settings["Hours - Friday"] && settings["Hours - Saturday"]
+        ? `Fri ${settings["Hours - Friday"]} • Sat ${settings["Hours - Saturday"]}`
+        : "Open daily";
+      const loyaltyProgram = settings["Loyalty Program Name"] || "MY SLICE REWARDS";
+      const loyaltyEarn = settings["Loyalty Earn Rate"] || "";
+      const loyaltyBonus = settings["Loyalty Signup/Birthday Bonus"] || "";
+      const loyaltyRedeem = settings["Loyalty Redemption Rate"] || "";
+
+      document.getElementById("title").textContent = businessName;
+      document.getElementById("subtitle").textContent = `Fresh pizza, wings, pasta, drinks and desserts in Kamloops. ${settings.Website || ""}`.trim();
+      document.getElementById("eyebrow").textContent = loyaltyProgram;
+      document.getElementById("footer").textContent = [loyaltyEarn, loyaltyBonus, loyaltyRedeem].filter(Boolean).join(" • ") || "Live menu and promo board.";
+      document.title = businessName;
+
+      const metaValues = document.querySelectorAll(".meta-value");
+      if (metaValues[0]) metaValues[0].textContent = phone.replace(/^\+1\s*/, "");
+      if (metaValues[1]) metaValues[1].textContent = hoursSummary;
+      if (metaValues[2]) metaValues[2].textContent = address;
     }
 
     function renderPromos(rows) {
